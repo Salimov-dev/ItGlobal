@@ -1,0 +1,27 @@
+body {
+  font-family: Golos, sans-serif !important;
+}
+
+@font-face {
+  font-family: Golos;
+  font-weight: normal;
+  src: url(./assets/fonts/Golos/GolosText-Regular.ttf);
+}
+
+@font-face {
+  font-family: Golos;
+  font-weight: 500;
+  src: url(./assets/fonts/Golos/GolosText-Medium.ttf);
+}
+
+@font-face {
+  font-family: Golos;
+  font-weight: 600;
+  src: url(./assets/fonts/Golos/GolosText-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Golos;
+  font-weight: bold;
+  src: url(./assets/fonts/Golos/GolosText-Bold.ttf);
+}
