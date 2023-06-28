@@ -23,9 +23,24 @@ const Container = styled(Box)`
 
 const MobileMenu = ({ onClose, open }) => {
   const [menuNumber, setMenuNumber] = useState(1);
+  const [currentMenuItem, setCurrentMenuItem] = useState(1);
+  console.log("menuNumber", menuNumber);
+  console.log("currentMenuItem", currentMenuItem);
 
-  const handleToggleMenu = (id) => {
-    console.log("id", id);
+  const handleToggleSecondMenu = () => {
+    setMenuNumber(2);
+  };
+
+  const handleToggleThirdMenu = () => {
+    setMenuNumber(3);
+  };
+
+  const handleMenuBack = () => {
+    setMenuNumber(menuNumber - 1);
+  };
+
+  const handleGetItemID = (id) => {
+    setCurrentMenuItem(id);
   };
 
   return (
@@ -38,11 +53,14 @@ const MobileMenu = ({ onClose, open }) => {
       >
         <Container>
           <HeaderBlock onClose={onClose} />
-          <SecondMenu/>
-          
-          {/* <MainMenu onToggle={handleToggleMenu} /> */}
-          {/* <FooterMenu /> */}
-
+          {menuNumber === 1 && (
+            <MainMenu
+              onToggle={handleToggleSecondMenu}
+              onGetItemID={handleGetItemID}
+            />
+          )}
+          {menuNumber === 2 && <SecondMenu id={currentMenuItem} onMenuBack={handleMenuBack} />}
+          {menuNumber === 1 && <FooterMenu />}
         </Container>
       </Dialog>
     </Box>

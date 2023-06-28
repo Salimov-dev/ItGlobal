@@ -25,16 +25,24 @@ const Menu = styled(Box)`
   gap: 20px;
 `;
 
-const SecondMenu = () => {
+const ArrowBack = styled(`img`)({
+  cursor: "pointer",
+});
+
+const SecondMenu = ({ id, onMenuBack }) => {
+  const currentItemMenu = MainMenuItems.filter((item) => item.id === id);
+  const title = currentItemMenu[0].name;
+  const menuItems = currentItemMenu[0].items;
+
   return (
     <Component>
       <Title display="flex" alignItems="center" gap="5px" fontSize="22px">
-        <img src={ArrowLeft} alt="Back" />
-        Services
+        <ArrowBack src={ArrowLeft} alt="Back" onClick={onMenuBack} />
+        {title}
       </Title>
 
       <Menu>
-        {MainMenuItems.map((item) => (
+        {menuItems.map((item) => (
           <Box
             key={item.id}
             onClick={() => onToggle(item.id)}
