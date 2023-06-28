@@ -9,12 +9,13 @@ const Component = styled(Box)`
   padding: 0 20px 0 10px;
 `;
 
-const MainMenu = () => {
+const MainMenu = ({ onToggle }) => {
   return (
     <Component>
       {MainMenuItems.map((item) => (
         <Box
           key={item.id}
+          onClick={() => onToggle(item.id)}
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -24,7 +25,7 @@ const MainMenu = () => {
             },
           }}
         >
-          <Typography sx={{ fontWeight: "600" }}>{item.name}</Typography>
+          <Typography sx={{ fontWeight: "600", fontSize: "22px" }}>{item.name}</Typography>
           <img src={ArrowRight} alt="Ru" />
         </Box>
       ))}

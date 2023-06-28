@@ -24,7 +24,7 @@ const FooterMenu = () => {
             },
           }}
         >
-          <Typography sx={{ fontWeight: "600" }}>{item.name}</Typography>
+          <Typography sx={{ fontWeight: "600", fontSize: "22px" }}>{item.name}</Typography>
         </Box>
       ))}
     </Footer>

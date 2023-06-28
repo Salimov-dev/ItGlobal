@@ -8,7 +8,7 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 // components
-import MobileMenu from "../dialog/mobile-menu";
+import MobileMenu from "../mobile-menu/mobile-menu";
 
 const Appbar = () => {
   const [isOpen, setIsOpen] = useState(false);

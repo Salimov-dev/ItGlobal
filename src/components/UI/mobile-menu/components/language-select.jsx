@@ -19,7 +19,8 @@ const SelectedLanguage = styled(Box)`
 `;
 
 const LanguageIcon = styled(`img`)({ width: "24px" });
-const ArrowDownButton = styled(`img`)({ width: "16px" });
+
+const ArrowDownButton = styled(`img`)({ width: "16px", paddingTop: "4px" });
 
 const LanguageSelect = () => {
   return (

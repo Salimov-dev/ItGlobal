@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 // MUI components
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
@@ -7,6 +7,7 @@ import { Box, styled } from "@mui/material";
 import MainMenu from "./components/main-menu";
 import FooterMenu from "./components/footer-menu";
 import HeaderBlock from "./components/header-block";
+import SecondMenu from "../../common/second-menu/second-menu";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -21,6 +22,12 @@ const Container = styled(Box)`
 `;
 
 const MobileMenu = ({ onClose, open }) => {
+  const [menuNumber, setMenuNumber] = useState(1);
+
+  const handleToggleMenu = (id) => {
+    console.log("id", id);
+  };
+
   return (
     <Box>
       <Dialog
@@ -31,8 +38,11 @@ const MobileMenu = ({ onClose, open }) => {
       >
         <Container>
           <HeaderBlock onClose={onClose} />
-          <MainMenu />
-          <FooterMenu />
+          <SecondMenu/>
+          
+          {/* <MainMenu onToggle={handleToggleMenu} /> */}
+          {/* <FooterMenu /> */}
+
         </Container>
       </Dialog>
     </Box>
