@@ -29,10 +29,25 @@ const ArrowBack = styled(`img`)({
   cursor: "pointer",
 });
 
-const SecondMenu = ({ id, onMenuBack }) => {
-  const currentItemMenu = MainMenuItems.filter((item) => item.id === id);
-  const title = currentItemMenu[0].name;
-  const menuItems = currentItemMenu[0].items;
+const SecondMenu = ({ id, onMenuBack, onToggle, onGetItemID }) => {
+  const findMenuItemById = (arr, targetId) => {
+    for (const obj of arr) {
+      if (obj.id === targetId) {
+        return obj;
+      }
+      if (obj.items) {
+        const foundObj = findMenuItemById(obj.items, targetId);
+        if (foundObj) {
+          return foundObj;
+        }
+      }
+    }
+    return null;
+  };
+
+  const currentItemMenu = findMenuItemById(MainMenuItems, id);
+  const title = currentItemMenu.name;
+  const menuItems = currentItemMenu.items;
 
   return (
     <Component>
@@ -45,7 +60,7 @@ const SecondMenu = ({ id, onMenuBack }) => {
         {menuItems.map((item) => (
           <Box
             key={item.id}
-            onClick={() => onToggle(item.id)}
+            onClick={() => (onToggle(item.id), onGetItemID(item.id))}
             sx={{
               display: "flex",
               justifyContent: "space-between",

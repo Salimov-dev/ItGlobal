@@ -12,6 +12,7 @@ import MobileMenu from "../mobile-menu/mobile-menu";
 
 const Appbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [menuNumber, setMenuNumber] = useState(1);
 
   const handleClickOpen = () => {
     setIsOpen(true);
@@ -19,6 +20,7 @@ const Appbar = () => {
 
   const handleClose = () => {
     setIsOpen(false);
+    setMenuNumber(1);
   };
 
   return (
@@ -40,7 +42,12 @@ const Appbar = () => {
         </AppBar>
       </Box>
 
-      <MobileMenu onClose={handleClose} open={isOpen} />
+      <MobileMenu
+        onClose={handleClose}
+        open={isOpen}
+        menuNumber={menuNumber}
+        setMenuNumber={setMenuNumber}
+      />
     </>
   );
 };

@@ -8,6 +8,7 @@ import MainMenu from "./components/main-menu";
 import FooterMenu from "./components/footer-menu";
 import HeaderBlock from "./components/header-block";
 import SecondMenu from "../../common/second-menu/second-menu";
+import ThirdMenu from "../../common/third-menu/third-menu";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -21,11 +22,8 @@ const Container = styled(Box)`
   height: 100%;
 `;
 
-const MobileMenu = ({ onClose, open }) => {
-  const [menuNumber, setMenuNumber] = useState(1);
+const MobileMenu = ({ onClose, open, menuNumber, setMenuNumber }) => {
   const [currentMenuItem, setCurrentMenuItem] = useState(1);
-  console.log("menuNumber", menuNumber);
-  console.log("currentMenuItem", currentMenuItem);
 
   const handleToggleSecondMenu = () => {
     setMenuNumber(2);
@@ -35,8 +33,9 @@ const MobileMenu = ({ onClose, open }) => {
     setMenuNumber(3);
   };
 
-  const handleMenuBack = () => {
+  const handleMenuBack = (id) => {
     setMenuNumber(menuNumber - 1);
+    id && setCurrentMenuItem(id)
   };
 
   const handleGetItemID = (id) => {
@@ -53,13 +52,9 @@ const MobileMenu = ({ onClose, open }) => {
       >
         <Container>
           <HeaderBlock onClose={onClose} />
-          {menuNumber === 1 && (
-            <MainMenu
-              onToggle={handleToggleSecondMenu}
-              onGetItemID={handleGetItemID}
-            />
-          )}
-          {menuNumber === 2 && <SecondMenu id={currentMenuItem} onMenuBack={handleMenuBack} />}
+          {menuNumber === 1 && <MainMenu onToggle={handleToggleSecondMenu} onGetItemID={handleGetItemID} />}
+          {menuNumber === 2 && <SecondMenu id={currentMenuItem} onToggle={handleToggleThirdMenu} onMenuBack={handleMenuBack} onGetItemID={handleGetItemID}/>}
+          {menuNumber === 3 && <ThirdMenu  id={currentMenuItem} onMenuBack={handleMenuBack}/>}
           {menuNumber === 1 && <FooterMenu />}
         </Container>
       </Dialog>
