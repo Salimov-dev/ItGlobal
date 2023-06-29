@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// libraries
-import { useSelector } from "react-redux";
 // MUI components
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -8,18 +6,9 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Typography, styled } from "@mui/material";
 // components
 import MobileMenu from "../mobile-menu/mobile-menu";
-
-const Message = styled(Typography)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-  width: 100vw;
-`;
+import Message from "./components/message";
 
 const Appbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,15 +44,7 @@ const Appbar = () => {
         </AppBar>
       </Box>
 
-      <Box>
-        {matches ? (
-          <Message variant="h5">
-            Мобильное меню будет доступно при разрешение менее 360px
-          </Message>
-        ) : (
-          <Message variant="h5">Нажмите "бургер", Сэр!</Message>
-        )}
-      </Box>
+      <Message matches={matches} />
 
       <MobileMenu
         onClose={handleClose}

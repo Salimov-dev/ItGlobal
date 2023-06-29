@@ -1,10 +1,13 @@
 import { Box, Divider, Typography, styled } from "@mui/material";
-import { MainMenuItems } from "../../../data/menu-items";
+// hooks
 import useFindMenuItemById from "../../../hooks/use-find-menu-item";
 import useFindParentId from "../../../hooks/use-find-parent-id";
+// components
 import ThirdMenuTitle from "./components/third-menu-title";
 import ThirdMenuItemTitle from "./components/item-title";
 import ThirdMenuItemSubtitle from "./components/item-subtitle";
+// data
+import { MainMenuItems } from "../../../data/menu-items";
 
 const Component = styled(Box)`
   height: 100vh;
@@ -46,7 +49,7 @@ const ThirdMenu = ({ id, onMenuBack }) => {
 
       <Menu>
         {currentItemMenu.items.map((item) => (
-          <MenuItemContainer>
+          <MenuItemContainer key={item.id}>
             <ThirdMenuItemTitle item={item} />
             <ThirdMenuItemSubtitle item={item} />
           </MenuItemContainer>

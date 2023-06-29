@@ -1,7 +1,9 @@
 import { Box, Typography, styled } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+// icons
 import ArrowSelected from "../../../../assets/icons/arrows/arrow_selected.svg";
+// data
 import { LanguageList } from "../../../../data/languages-list";
 
 const LanguageContainer = styled(Box)``;

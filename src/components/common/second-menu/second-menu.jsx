@@ -1,8 +1,11 @@
 import { Box, styled } from "@mui/material";
-import { MainMenuItems } from "../../../data/menu-items";
+// hooks
 import useFindMenuItemById from "../../../hooks/use-find-menu-item";
+// components
 import SecondMenuItem from "./components/second-menu-item";
 import SecondMenuTitle from "./components/second-menu-title";
+// data
+import { MainMenuItems } from "../../../data/menu-items";
 
 const Component = styled(Box)`
   display: flex;

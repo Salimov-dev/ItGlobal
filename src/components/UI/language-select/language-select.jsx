@@ -1,7 +1,9 @@
 import { Box, Button, styled } from "@mui/material";
-import { LanguageList } from "../../../data/languages-list";
+// icons
 import ArrowDown from "../../../assets/icons/arrows/arrow_down.svg";
 import ArrowUp from "../../../assets/icons/arrows/arrow_up.svg";
+// data
+import { LanguageList } from "../../../data/languages-list";
 
 const Component = styled(Box)`
   display: flex;
