@@ -17,8 +17,14 @@ const ArrowBack = styled(`img`)({
 
 const SecondMenuTitle = ({ title, onMenuBack }) => {
   return (
-    <Title display="flex" alignItems="center" gap="5px" fontSize="22px">
-      <ArrowBack src={ArrowLeft} alt="Back" onClick={onMenuBack} />
+    <Title
+      display="flex"
+      alignItems="center"
+      gap="5px"
+      fontSize="22px"
+      onClick={onMenuBack}
+    >
+      <ArrowBack src={ArrowLeft} alt="Back" />
       {title}
     </Title>
   );

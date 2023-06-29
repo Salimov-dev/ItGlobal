@@ -2,10 +2,10 @@ import { Box, styled } from "@mui/material";
 import ArrowLeft from "../../../../assets/icons/arrows/arrow_left.svg";
 
 const ArrowBack = styled(`img`)({
-    cursor: "pointer",
-  });
+  cursor: "pointer",
+});
 
-  const Title = styled(Box)`
+const Title = styled(Box)`
   display: flex;
   alignitems: center;
   gap: 5px;
@@ -16,15 +16,13 @@ const ArrowBack = styled(`img`)({
   line-height: 28px;
 `;
 
-const ThirdMenuTitle = ({title, onMenuBack, parentId}) => {
-    return   <Title>
-    <ArrowBack
-      src={ArrowLeft}
-      alt="Back"
-      onClick={() => onMenuBack(parentId)}
-    />
-    {title}
-  </Title>
-}
- 
+const ThirdMenuTitle = ({ title, onMenuBack, parentId }) => {
+  return (
+    <Title onClick={() => onMenuBack(parentId)}>
+      <ArrowBack src={ArrowLeft} alt="Back" />
+      {title}
+    </Title>
+  );
+};
+
 export default ThirdMenuTitle;
