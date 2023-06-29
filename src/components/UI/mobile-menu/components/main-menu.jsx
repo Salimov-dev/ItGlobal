@@ -1,6 +1,6 @@
-import { Box, Typography, styled } from "@mui/material";
-import ArrowRight from "../../../../assets/icons/arrows/arrow_right.svg";
+import { Box, styled } from "@mui/material";
 import { MainMenuItems } from "../../../../data/menu-items";
+import MainMenuItem from "./main-menu-item";
 
 const Component = styled(Box)`
   display: flex;
@@ -13,23 +13,12 @@ const MainMenu = ({ onToggle, onGetItemID }) => {
   return (
     <Component>
       {MainMenuItems.map((item) => (
-        <Box
+        <MainMenuItem
           key={item.id}
-          onClick={() => (onToggle(), onGetItemID(item.id))}
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            cursor: "pointer",
-            "&:hover": {
-              color: "#1D7DED",
-            },
-          }}
-        >
-          <Typography sx={{ fontWeight: "600", fontSize: "22px" }}>
-            {item.name}
-          </Typography>
-          <img src={ArrowRight} alt="Ru" />
-        </Box>
+          onToggle={onToggle}
+          onGetItemID={onGetItemID}
+          item={item}
+        />
       ))}
     </Component>
   );

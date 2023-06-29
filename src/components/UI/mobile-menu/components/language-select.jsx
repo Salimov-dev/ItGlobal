@@ -1,6 +1,8 @@
-import { Box, Typography, styled } from "@mui/material";
+import { Box, Button, Typography, styled } from "@mui/material";
 import IconRu from "../../../../assets/icons/countries/Icon_RU.png";
 import ArrowDown from "../../../../assets/icons/arrows/arrow_down.svg";
+import ArrowUp from "../../../../assets/icons/arrows/arrow_up.svg";
+import { LanguageList } from "../../../../data/languages-list";
 
 const Component = styled(Box)`
   display: flex;
@@ -13,22 +15,36 @@ const LanguageSelectBlock = styled(Box)`
   gap: 5px;
 `;
 
-const SelectedLanguage = styled(Box)`
+const Language = styled(Button)`
   font-weight: 600;
   font-size: 20px;
+  color: inherit;
+  padding: 0;
+  text-transform: none;
+  min-width: 0;
 `;
 
 const LanguageIcon = styled(`img`)({ width: "24px" });
 
-const ArrowDownButton = styled(`img`)({ width: "16px", paddingTop: "4px" });
+const Arrow = styled(`img`)({});
 
-const LanguageSelect = () => {
+const LanguageSelect = ({ open, handleClick, currentLanguage }) => {
+  const selectedLanguage = LanguageList.find(
+    (lang) => lang.id === currentLanguage
+  );
+
   return (
-    <Component>
-      <LanguageIcon src={IconRu} alt="Ru" />
+    <Component
+      id="basic-button"
+      aria-controls={open ? "basic-menu" : undefined}
+      aria-haspopup="true"
+      aria-expanded={open ? "true" : undefined}
+      onClick={handleClick}
+    >
+      <LanguageIcon src={selectedLanguage.img} alt="Ru" />
       <LanguageSelectBlock>
-        <SelectedLanguage>Ru</SelectedLanguage>
-        <ArrowDownButton src={ArrowDown} alt="Down" />
+        <Language>{selectedLanguage.title}</Language>
+        <Arrow src={open ? ArrowUp : ArrowDown} alt="arrow" />
       </LanguageSelectBlock>
     </Component>
   );
