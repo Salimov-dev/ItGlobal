@@ -20,6 +20,7 @@ const Container = styled(Box)`
   flex-direction: column;
   align-items: space-between;
   height: 100%;
+  overflow: hidden;
 `;
 
 const MobileMenu = ({ onClose, open, menuNumber, setMenuNumber }) => {

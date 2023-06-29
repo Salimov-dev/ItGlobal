@@ -3,8 +3,11 @@ import { MainMenuItems } from "../../../data/menu-items";
 import useFindMenuItemById from "../../../hooks/use-find-menu-item";
 import useFindParentId from "../../../hooks/use-find-parent-id";
 import ThirdMenuTitle from "./components/third-menu-title";
+import ThirdMenuItemTitle from "./components/item-title";
+import ThirdMenuItemSubtitle from "./components/item-subtitle";
 
 const Component = styled(Box)`
+  height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 0 20px 0 10px;
@@ -14,7 +17,16 @@ const Menu = styled(Box)`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px 0 0 0;
+  padding: 20px 30px 0 0;
+  overflow: auto;
+  margin-right: -30px;
+`;
+
+const MenuItemContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 0 10px 0;
 `;
 
 const ThirdMenu = ({ id, onMenuBack }) => {
@@ -34,31 +46,10 @@ const ThirdMenu = ({ id, onMenuBack }) => {
 
       <Menu>
         {currentItemMenu.items.map((item) => (
-          <Box
-            key={item.id}
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "5px",
-                padding: "0 0 10px 0",
-              }}
-            >
-              <Typography sx={{ fontSize: "18px", fontWeight: "500" }}>
-                {item.title}
-              </Typography>
-              <Typography
-                sx={{ fontSize: "12px", fontWeight: "500", color: "grey" }}
-              >
-                {item.subtitle}
-              </Typography>
-            </Box>
-          </Box>
+          <MenuItemContainer>
+            <ThirdMenuItemTitle item={item} />
+            <ThirdMenuItemSubtitle item={item} />
+          </MenuItemContainer>
         ))}
       </Menu>
     </Component>
