@@ -1,8 +1,7 @@
-import { Box, Button, Typography, styled } from "@mui/material";
-import IconRu from "../../../../assets/icons/countries/Icon_RU.png";
-import ArrowDown from "../../../../assets/icons/arrows/arrow_down.svg";
-import ArrowUp from "../../../../assets/icons/arrows/arrow_up.svg";
-import { LanguageList } from "../../../../data/languages-list";
+import { Box, Button, styled } from "@mui/material";
+import { LanguageList } from "../../../data/languages-list";
+import ArrowDown from "../../../assets/icons/arrows/arrow_down.svg";
+import ArrowUp from "../../../assets/icons/arrows/arrow_up.svg";
 
 const Component = styled(Box)`
   display: flex;
