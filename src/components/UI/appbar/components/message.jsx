@@ -5,7 +5,7 @@ const Components = styled(Typography)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
 `;
 
