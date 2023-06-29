@@ -14,7 +14,7 @@ const Message = ({ matches }) => {
     <Box>
       {matches ? (
         <Components variant="h5">
-          Мобильное меню будет доступно при разрешение менее 360px
+          Мобильное меню будет доступно при разрешение менее 500px
         </Components>
       ) : (
         <Components variant="h5">Нажмите "бургер", Сэр!</Components>

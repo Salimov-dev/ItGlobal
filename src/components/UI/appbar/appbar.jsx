@@ -23,7 +23,7 @@ const Appbar = () => {
     setMenuNumber(1);
   };
 
-  const matches = useMediaQuery("(min-width:361px)");
+  const matches = useMediaQuery("(min-width:501px)");
 
   return (
     <>
