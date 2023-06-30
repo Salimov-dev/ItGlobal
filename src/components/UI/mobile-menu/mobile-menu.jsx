@@ -19,7 +19,6 @@ const Container = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: space-between;
-  height: 100%;
   overflow: hidden;
 `;
 
@@ -44,36 +43,34 @@ const MobileMenu = ({ onClose, open, menuNumber, setMenuNumber }) => {
   };
 
   return (
-    <Box>
-      <Dialog
-        fullScreen
-        open={open}
-        onClose={onClose}
-        TransitionComponent={Transition}
-      >
-        <Container>
-          <HeaderBlock onClose={onClose} />
-          {menuNumber === 1 && (
-            <MainMenu
-              onToggle={handleToggleSecondMenu}
-              onGetItemID={handleGetItemID}
-            />
-          )}
-          {menuNumber === 2 && (
-            <SecondMenu
-              id={currentMenuItem}
-              onToggle={handleToggleThirdMenu}
-              onMenuBack={handleMenuBack}
-              onGetItemID={handleGetItemID}
-            />
-          )}
-          {menuNumber === 3 && (
-            <ThirdMenu id={currentMenuItem} onMenuBack={handleMenuBack} />
-          )}
-          {menuNumber === 1 && <FooterMenu />}
-        </Container>
-      </Dialog>
-    </Box>
+    <Dialog
+      fullScreen
+      open={open}
+      onClose={onClose}
+      TransitionComponent={Transition}
+    >
+      <Container>
+        <HeaderBlock onClose={onClose} />
+        {menuNumber === 1 && (
+          <MainMenu
+            onToggle={handleToggleSecondMenu}
+            onGetItemID={handleGetItemID}
+          />
+        )}
+        {menuNumber === 2 && (
+          <SecondMenu
+            id={currentMenuItem}
+            onToggle={handleToggleThirdMenu}
+            onMenuBack={handleMenuBack}
+            onGetItemID={handleGetItemID}
+          />
+        )}
+        {menuNumber === 3 && (
+          <ThirdMenu id={currentMenuItem} onMenuBack={handleMenuBack} />
+        )}
+        {menuNumber === 1 && <FooterMenu />}
+      </Container>
+    </Dialog>
   );
 };
 
