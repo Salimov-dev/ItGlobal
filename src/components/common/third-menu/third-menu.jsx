@@ -13,7 +13,7 @@ const Component = styled(Box)`
   height: 90%;
   display: flex;
   flex-direction: column;
-  padding: 0 20px 20px 10px;
+  padding: 0 20px 0 10px;
 `;
 
 const Menu = styled(Box)`
@@ -47,7 +47,7 @@ const ThirdMenu = ({ id, onMenuBack }) => {
 
       <Divider sx={{ margin: "0 -30px 0 -30px" }} />
 
-      <Menu sx={{ paddingBottom: "30px" }}>
+      <Menu sx={{paddingBottom: '30px'}}>
         {currentItemMenu.items.map((item) => (
           <MenuItemContainer key={item.id}>
             <ThirdMenuItemTitle item={item} />
@@ -55,6 +55,7 @@ const ThirdMenu = ({ id, onMenuBack }) => {
           </MenuItemContainer>
         ))}
       </Menu>
+
     </Component>
   );
 };
